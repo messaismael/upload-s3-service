@@ -3,7 +3,9 @@
 
 ## Getting started
 
-It's a service to upload file to a **AWS S3 Bucket**
+It's a service to upload file to a **AWS S3 Bucket** using **ExpressJs** and **TypeScript**.
+
+You can upload image(jpeg, png and jpg) file to a specific bucket which name is given in **env** file just by providing file as data to the endpoint ( **http://localhost:8080/upload** ) of the project.
 
 ## Tools
 

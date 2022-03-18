@@ -2,6 +2,14 @@ import { S3 } from 'aws-sdk';
 import { CreateBucketRequest } from 'aws-sdk/clients/s3';
 import config from "../config";
 
+/**
+ * @name createBucket
+ *  @type {Function}
+ * @param {S3} s3 
+ * @description it created bucket
+ * @returns {Promise<{success:boolean; message: string; data: string;}>}
+ * @author messaismael
+*/
 const createBucket = async (s3: S3) => {
   const params: CreateBucketRequest = {
     Bucket: config.bucket_name,

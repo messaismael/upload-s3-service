@@ -2,13 +2,22 @@ import { S3 } from "aws-sdk";
 import fs  from 'fs';
 import config from "../config";
 
-export const uploadS3 = async (s3: S3, fileData: Express.Multer.File) => {
+/**
+ * @name uploadS3
+ * @type {Function}
+ * @param {S3} s3 
+ * @param {File} fileData 
+ * @description it's upload the current to the bucket
+ * @returns {Promise<{success:boolean; message: string; data: object;}>}
+ * @author messaismael
+*/
+export const uploadS3 = async (s3: S3, fileData?: Express.Multer.File) => {
   try {
-    const fileContent = fs.readFileSync(fileData.path);
+    const fileContent = fs.readFileSync(fileData!.path);
 
     const params = {
       Bucket: config.bucket_name,
-      Key: fileData.originalname,
+      Key: fileData!.originalname,
       Body: fileContent
     };
 
@@ -20,7 +29,7 @@ export const uploadS3 = async (s3: S3, fileData: Express.Multer.File) => {
       return {success: false, message: "Unable to Upload the file", data: error};
     }
   } catch (error) {
-    return {sucess:false, message: "Unalbe to access this file", data: {}};
+    return {success:false, message: "Unalbe to access this file", data: {}};
   }
 
 }
