@@ -18,7 +18,7 @@ You can upload image(jpeg, png and jpg) file to a specific bucket which name is 
 ## Install 
 
     $ git clone https://github.com/messaismael/upload-s3-service.git
-    $ cd uploade-s3-service
+    $ cd upload-s3-service
     $ npm install
 
 ## Configs
