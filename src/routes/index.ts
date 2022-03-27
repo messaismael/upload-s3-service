@@ -6,8 +6,8 @@ import { multerConfig } from '../config/multerConfig';
 
 const router = express.Router();
 
-const upload = multer({ storage: multerConfig.storage, fileFilter: multerConfig.fileFilter });
+const upload = multer(multerConfig);
 
-router.post("/upload", upload.single('filetos3'), UploadController.Upload);
+router.post("/upload", upload.single('uploaded_file'), UploadController.Upload);
 
 export { router };

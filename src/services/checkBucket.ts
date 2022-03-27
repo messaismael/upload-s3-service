@@ -1,7 +1,7 @@
 import { S3 } from "aws-sdk";
 
 /**
- * @name checkBucketExist
+ * @name checkBucket
  * @type {Function}
  * @param {S3} s3 
  * @description it checked if name bucket exist
@@ -9,7 +9,7 @@ import { S3 } from "aws-sdk";
  * @author messaismael
 */
 
-const checkBucketExist = async (s3: S3, bucket:string) => {
+const checkBucket = async (s3: S3, bucket:string) => {
   try {
     const res =  await s3.headBucket({Bucket: bucket}).promise()
     console.log("Bucket already Exist", res.$response.data);
@@ -20,4 +20,4 @@ const checkBucketExist = async (s3: S3, bucket:string) => {
   }
 };
 
-export default checkBucketExist;
+export default checkBucket;
