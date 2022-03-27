@@ -1,9 +1,9 @@
 import { S3 } from "aws-sdk";
-import fs  from 'fs';
+import fs from 'fs';
 import config from "../config";
 
 /**
- * @name uploadS3
+ * @name uploadToS3
  * @type {Function}
  * @param {S3} s3 
  * @param {File} fileData 
@@ -11,7 +11,7 @@ import config from "../config";
  * @returns {Promise<{success:boolean; message: string; data: object;}>}
  * @author messaismael
 */
-export const uploadS3 = async (s3: S3, fileData?: Express.Multer.File) => {
+export const uploadToS3 = async (s3: S3, fileData?: Express.Multer.File) => {
   try {
     const fileContent = fs.readFileSync(fileData!.path);
 

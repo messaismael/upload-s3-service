@@ -1,6 +1,6 @@
-import express, { Request } from "express";
+import express from "express";
 import cors from "cors";
-import {router as Router} from "./routes"
+import { router as Router } from "./routes"
 
 import config from "./config";
 
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ limit: '50000mb', extended: false }));
 // user route for all path
 app.use(Router);
 
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Upload S3 Service is ready'
@@ -24,7 +24,7 @@ app.get("/", (req, res)=>{
 });
 
 
-app.get("*", (req, res)=>{
+app.get("*", (req, res) => {
   res.status(404).send("Resource Not Found");
 });
 
